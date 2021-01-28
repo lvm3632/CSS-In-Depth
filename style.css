@@ -1,0 +1,107 @@
+/*
+* Se aplica a todos los elementos,
+* y pseudoelementos de la página
+* Aplicarle border-box al root
+* hace que evitemos errores
+* si existen third parties de programas
+* si no pensaron en el css
+*/
+
+:root{
+     box-sizing:border-box;
+}
+
+*,
+::before,
+::after{
+     box-sizing: inherit;
+}
+
+/** En ocasiones especiales **/
+.third-part-component{
+     box-sizing: content-box;
+}
+
+
+body{
+     background-color: #eee;
+     font-family: Helvetica, Arial, Helvetica, sans-serif;
+
+}
+
+body * + * {
+     margin-top:1.5em;
+}
+
+header{
+     padding: 1em 1.5em;
+     color:#fff;
+     background-color: #0072b0;
+     border-radius: .5em;
+
+}
+
+.container{
+     display:flex;
+}
+
+main{
+     /* Fixes IE Bug **/
+     display:block;
+}
+
+.main{
+     width:50%;
+     padding:1em 1.5em;
+     background-color: rgb(226, 99, 15);
+     border-radius: .5em;
+}
+
+.sidebar{
+     width: 20%;
+     padding: 1.5em;
+     margin-top:0;
+     margin-left:1.5em;
+     background-color:rgb(154, 196, 41);
+     border-radius: .5em;
+
+}
+
+.widget{
+     width:15%;
+     padding: 1.5em;
+     margin-top:0;
+     margin-left:1.5em;
+     background-color:rgb(48, 96, 185);
+     border-radius: .5em;
+     overflow:auto;
+     max-height:70vh;
+
+}
+
+
+.button-link{
+     display:block;
+     padding:0.5em;
+     color: #fff;
+     background-color: #0090C9;
+     text-align:center;
+     text-decoration:none;
+     text-transform:uppercase;
+}
+/* Esto se usa para decirle
+despues del primer elemento
+el siguiente que contenga esa clase
+y no se aplique antes
+.button-link + .button-link{
+     margin-top:1.5em;
+}*/
+
+.sponsor-link{
+     display:block;
+     color: #0072b0;
+     font-weight:bold;
+     text-decoration:none;
+}
+
+
