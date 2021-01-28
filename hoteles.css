@@ -1,0 +1,86 @@
+/*
+* Se aplica a todos los elementos,
+* y pseudoelementos de la página
+* Aplicarle border-box al root
+* hace que evitemos errores
+* si existen third parties de programas
+* si no pensaron en el css
+*/
+
+:root{
+     box-sizing:border-box;
+}
+
+*,
+::before,
+::after{
+     box-sizing: inherit;
+}
+
+/** En ocasiones especiales **/
+.third-part-component{
+     box-sizing: content-box;
+}
+
+
+body{
+     background-color: #eee;
+     font-family: Helvetica, Arial, Helvetica, sans-serif;
+
+}
+
+body * + * {
+     margin-top:1.5em;
+     margin-left:1.5em;
+}
+
+header{
+     padding: 1em 1.5em;
+     color:#fff;
+     background-color: #0072b0;
+     border-radius: .5em;
+
+}
+
+.container{
+     display:flex;
+     margin-left:0;
+     margin-top:0;
+     background:black;
+
+}
+
+.container + .container > *{
+     margin-top:.75em;
+     background:#ccc;
+}
+
+main{
+     /* Fixes IE Bug **/
+     display:block;
+}
+
+.main{
+     margin-top: 0;
+     width:25%;
+     padding:1em 1.5em;
+     background-color: rgb(226, 99, 15);
+     /*border-radius: .5em;*/
+     min-height:41.0vh;
+}
+
+.main > * {
+     margin:0;
+     padding:0;
+}
+
+.main > h2 {
+     margin-bottom:0.5em;
+}
+
+.boton_bonito{
+
+     display:flex;
+     float:inline-end;
+     margin-top:10em;
+}
